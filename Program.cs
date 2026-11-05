@@ -1,13 +1,13 @@
 ﻿if (args.Length != 4)
 {
-    Console.WriteLine("Usage: FolderSync <sourcePath> <replicaPath> <intervalSeconds> <logFilePath>");
+    Console.WriteLine("Usage: FolderSync <source folder> <target folder> <interval (in seconds)> <log directory>");
     return;
 }
 
 var sourceFolder = args[0];
 var replicaFolder = args[1];
 int.TryParse(args[2], out int intervalSeconds);
-var logFilePath = args[3];
+var logDirectory = args[3];
 
 if (CheckInitialArgs())
 {
@@ -100,5 +100,11 @@ void DeleteExtraFilesAndFolders()
 
 void Log(string Message)
 {
+
+    Directory.CreateDirectory(logDirectory);
+
+    var logFilePath = Path.Combine(logDirectory, "FolderSync_log.txt");
+
     File.AppendAllText(logFilePath, $"{DateTime.UtcNow}: {Message}{Environment.NewLine}");
+    Console.WriteLine($"[{DateTime.UtcNow}]: {Message}");
 }
