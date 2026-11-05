@@ -7,9 +7,9 @@ To use it, download the zip file that matches your operating system, extract the
 Run the command as follows: 
 
 ## Windows
-.\Folder-Sync.exe <source folder> <target folder> <interval between transfers (in seconds)> <log directory>
+.\Folder-Sync.exe [source folder] [target folder] [interval between transfers (in seconds)] [log directory]
 
 ## Mac/Linux
-./Folder-Sync <source folder> <target folder> <interval between transfers (in seconds> <log directory
+./Folder-Sync [source folder] [target folder] [interval between transfers (in seconds)] [log directory]
 
 Please note, if you do not have .NET installed on your computer, you can use the standalone versions provided in the release.
