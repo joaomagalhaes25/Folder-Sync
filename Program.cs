@@ -77,7 +77,7 @@ void Sync()
 
 void DeleteExtraFilesAndFolders()
 {
-    Directory.EnumerateFileSystemEntries(replicaFolder, "*", SearchOption.AllDirectories).ToList().ForEach(replicaPath =>
+    Directory.EnumerateFileSystemEntries(replicaFolder, "*", SearchOption.AllDirectories).OrderByDescending(path => path.Length).ToList().ForEach(replicaPath =>
     {
         var relativePath = Path.GetRelativePath(replicaFolder, replicaPath);
         var sourcePath = Path.Combine(sourceFolder, relativePath);
