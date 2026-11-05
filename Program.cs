@@ -11,10 +11,9 @@ var logDirectory = args[3];
 
 if (CheckInitialArgs())
 {
-    Console.WriteLine("Starting folder synchronization...");
-
     while (true)
     {
+        Console.WriteLine($"[{DateTime.UtcNow}]: Syncing folders...");
         Sync();
         DeleteExtraFilesAndFolders();
         Thread.Sleep(intervalSeconds * 1000);
