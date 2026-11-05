@@ -1,9 +1,8 @@
 # Folder Sync
-folder sync program for a coding exercise
-
-# How To Use
+This is a folder synchronization program developed for a coding exercise.
 Folder Sync works as a command line program, that allows a user to have one folder consistently sync to another.
 
+# How To Use
 To use it, download the zip file that matches your operating system, extract the program and open a CMD or Powershell window inside the program's folder.
 Run the command as follows: 
 
