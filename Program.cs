@@ -15,7 +15,7 @@ if (CheckInitialArgs())
     {
         Console.WriteLine($"[{DateTime.UtcNow}]: Syncing folders...");
         Sync();
-        DeleteExtraFilesAndFolders();
+        DeleteFilesAndFolders();
         Thread.Sleep(intervalSeconds * 1000);
     }
 
@@ -74,7 +74,7 @@ void Sync()
     });
 }
 
-void DeleteExtraFilesAndFolders()
+void DeleteFilesAndFolders()
 {
     Directory.EnumerateFileSystemEntries(replicaFolder, "*", SearchOption.AllDirectories).OrderByDescending(path => path.Length).ToList().ForEach(replicaPath =>
     {
@@ -99,7 +99,6 @@ void DeleteExtraFilesAndFolders()
 
 void Log(string Message)
 {
-
     Directory.CreateDirectory(logDirectory);
 
     var logFilePath = Path.Combine(logDirectory, "FolderSync_log.txt");
